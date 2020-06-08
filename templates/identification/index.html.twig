@@ -1,21 +1,29 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Hello IdentificationController!{% endblock %}
+{% extends "base_identification.html.twig" %}
 
 {% block body %}
 
+<div class="container col-md-12 mt-5">
+    
+    <div class="Container_Ceos bg-warning col-md-10 mx-auto rounded">
+        <div class="text-left text-danger p-3">
+            <h1>Céos</h1>
+        </div>
+            <div class="Container_Identification bg-warning col-md-10 mx-auto rounded d-flex">
+                <div class="Zone_Identificaion bg-success col-md-4 text-center p-2 m-auto rounded" id="eleve" >
+                    <a href="{#{{ path('eleve') }}#}" class="text-decoration-none text-reset m-auto d-flex justify-content-center align-items-center" style=" width:100%;height:100%;" ><h1>Zone Eleve</h1></a>
+                </div>        
 
-<div class="mt-5 text-center">
-    <h1>{{ controller_name }}</h1>
+                <div class="Zone_Identificaion bg-primary col-md-4 text-center p-2 m-auto rounded" id="prof">
+                    <a href="{{ path('professeur') }}" class="text-decoration-none text-reset m-auto d-flex justify-content-center align-items-center" style=" width:100%;height:100%;" ><h1>Zone professeur</h1></a>
+                </div>
+            </div>       
+
+        </div>
+
 </div>
-    <div class=" bg-primary col-md-4 text-center m-4 p-2 mx-auto">
-        <a href="#" class="text-decoration-none text-reset"><h1>Zone Prof</h1></a>
-    </div>
-
-    <div class=" bg-success col-md-4 text-center m-4 p-2 mx-auto">
-        <a href="#" class="text-decoration-none text-reset"><h1>Zone Eleve</h1></a>
-    </div>
 
 
 
 {% endblock %}
+
+       
