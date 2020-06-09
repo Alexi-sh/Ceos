@@ -18,11 +18,6 @@ class Devoir
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $id_devoir;
-
-    /**
      * @ORM\Column(type="string", length=40)
      */
     private $titre;
@@ -33,7 +28,7 @@ class Devoir
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     private $lien_telechargement;
 
@@ -41,28 +36,11 @@ class Devoir
      * @ORM\ManyToOne(targetEntity=Matiere::class, inversedBy="devoirs")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $id_matiere;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    
+    private $matiere;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getIdDevoir(): ?int
-    {
-        return $this->id_devoir;
-    }
-
-    public function setIdDevoir(int $id_devoir): self
-    {
-        $this->id_devoir = $id_devoir;
-
-        return $this;
     }
 
     public function getTitre(): ?string
@@ -101,17 +79,15 @@ class Devoir
         return $this;
     }
 
-    public function getIdMatiere(): ?Matiere
+    public function getMatiere(): ?Matiere
     {
-        return $this->id_matiere;
+        return $this->matiere;
     }
 
-    public function setIdMatiere(?Matiere $id_matiere): self
+    public function setMatiere(?Matiere $matiere): self
     {
-        $this->id_matiere = $id_matiere;
+        $this->matiere = $matiere;
 
         return $this;
     }
-
-  
 }

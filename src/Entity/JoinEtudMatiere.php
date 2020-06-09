@@ -18,40 +18,24 @@ class JoinEtudMatiere
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity=Eleves::class, inversedBy="eleve")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $id_eleve;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $id_matiere;
+    private $eleve;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getIdEleve(): ?int
+    public function getEleve(): ?Eleves
     {
-        return $this->id_eleve;
+        return $this->eleve;
     }
 
-    public function setIdEleve(int $id_eleve): self
+    public function setEleve(?Eleves $eleve): self
     {
-        $this->id_eleve = $id_eleve;
-
-        return $this;
-    }
-
-    public function getIdMatiere(): ?int
-    {
-        return $this->id_matiere;
-    }
-
-    public function setIdMatiere(int $id_matiere): self
-    {
-        $this->id_matiere = $id_matiere;
+        $this->eleve = $eleve;
 
         return $this;
     }
