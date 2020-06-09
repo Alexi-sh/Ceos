@@ -15,11 +15,10 @@ class ClasseFixtures extends Fixture
 
         for($i= 1; $i <= 6; $i ++){
 
-            $classe = new Classe();
+            $classe = new Classe;
 
-            $classe->setNiveau("Yolo")
-                    ->setSection("bip boup")
-                    -
+            $classe->setNiveau($faker->randomElement($array = array ('6','5','4','3')))
+                    ->setSection($faker->randomElement($array = array ('A','B','C')));
 
                     $manager->persist($classe);
         }
