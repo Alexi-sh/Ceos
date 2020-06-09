@@ -1,16 +1,47 @@
-.container {
-    opacity: 0;
-}
-
 .Container_Ceos {
-    height: 80vh
+    height: 80vh;
+    font-family: 'Luckiest Guy', cursive;
 }
 
 .Container_Identification {
-    height: 60vh
+    min-height: 60vh
 }
 
 .Zone_Identificaion {
     height: 40vh;
     width: 60vw
+}
+
+@media (max-width: 575.98px) {
+    body {
+        background-color: #ffc107;
+    }
+    h1 {
+        text-align: center;
+    }
+    .Zone_Identificaion {
+        height: 30vh;
+        width: 80vw;
+        margin-bottom: 5vh !important;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    body {
+        background-color: #ffc107;
+    }
+    h1 {
+        text-align: center;
+    }
+    .Zone_Identificaion {
+        margin-bottom: 5vh !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .Zone_Identificaion {
+        height: 40vh;
+        width: 80vw;
+        margin-bottom: 5vh !important;
+    }
 }
