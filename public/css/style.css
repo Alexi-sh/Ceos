@@ -1,0 +1,15 @@
+.container {
+    opacity: 0;
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 1.5em;
+}
+
+.ceos {
+    font-weight: bold;
+    color: #dc3545;
+    font-family: 'Luckiest Guy', cursive;
+}
+
+h1 span {
+    font-size: 1.3em;
+}

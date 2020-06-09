@@ -1,43 +1,72 @@
-function redirectionIdentificationEleve() {
-    window.location.href = "//localhost:8000/eleve";
-}
+var app = {};
 
-function redirectionIdentificationProf() {
-    window.location.href = "//localhost:8000/professeur";
-}
+(function($) {
 
-function fadeOutContainer() {
-    $('.container').animate({
-        "opacity": "0",
-    }, 800); //.fadeOut(1500);
-}
+    "use strict";
 
+    var $window = $(window),
+        $document = $(document);
 
-$("#eleve").click(function() {
-    event.preventDefault();
+    var fadeOutContainer = function() {
+        $('.container').animate({
+            "opacity": "0",
+        }, 800);
+    }
 
-    $("#prof").animate({
-        "opacity": "0",
-    }, 3000);
+    var redirectionIdentificationEleve = function() {
+        window.location.href = "//localhost:8000/eleve";
+    }
 
-    $("#eleve").animate({
-        "left": "25%",
-    }, 4000);
-    setTimeout(fadeOutContainer, 3000);
-    setTimeout(redirectionIdentificationEleve, 4000);
-});
+    var redirectionIdentificationProf = function() {
+        window.location.href = "//localhost:8000/professeur";
+    }
 
 
-$("#prof").click(function() {
-    event.preventDefault();
 
-    $("#eleve").animate({
-        "opacity": "0",
-    }, 800);
 
-    $("#prof").animate({
-        "left": "-25%",
-    }, 1600);
-    setTimeout(fadeOutContainer, 1600);
-    setTimeout(redirectionIdentificationProf, 2800);
-});
+    app.clickEleve = function() {
+
+        $("#eleve").click(function() {
+            event.preventDefault();
+
+            $("#prof").animate({
+                "opacity": "0",
+            }, 800);
+
+            $("#eleve").animate({
+                "left": "25%",
+            }, 1600);
+
+            setTimeout(fadeOutContainer, 1600);
+            setTimeout(redirectionIdentificationEleve, 2800);
+        });
+    }
+
+    app.clickProf = function() {
+        $("#prof").click(function() {
+            event.preventDefault();
+
+            $("#eleve").animate({
+                "opacity": "0",
+            }, 800);
+
+            $("#prof").animate({
+                "right": "25%",
+            }, 1600);
+            setTimeout(fadeOutContainer, 1600);
+            setTimeout(redirectionIdentificationProf, 2800);
+        });
+    }
+
+    $document.ready(function() {
+
+        app.clickEleve();
+        app.clickProf();
+
+    });
+
+
+
+
+
+})(jQuery);
