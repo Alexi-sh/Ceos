@@ -20,51 +20,29 @@ class Matiere
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $id_matiere;
-
-    /**
      * @ORM\Column(type="string", length=40)
      */
     private $nom_matiere;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToMany(targetEntity=Enseignant::class, inversedBy="matieres")
      */
-    private $id_enseignant;
+    private $enseignant;
 
     /**
-     * @ORM\OneToMany(targetEntity=Cours::class, mappedBy="id_matiere")
-     */
-    private $cours_matiere;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Devoir::class, mappedBy="id_matiere", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Devoir::class, mappedBy="matiere")
      */
     private $devoirs;
 
     public function __construct()
     {
-        $this->cours_matiere = new ArrayCollection();
+        $this->enseignant = new ArrayCollection();
         $this->devoirs = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getIdMatiere(): ?int
-    {
-        return $this->id_matiere;
-    }
-
-    public function setIdMatiere(int $id_matiere): self
-    {
-        $this->id_matiere = $id_matiere;
-
-        return $this;
     }
 
     public function getNomMatiere(): ?string
@@ -79,44 +57,27 @@ class Matiere
         return $this;
     }
 
-    public function getIdEnseignant(): ?int
-    {
-        return $this->id_enseignant;
-    }
-
-    public function setIdEnseignant(int $id_enseignant): self
-    {
-        $this->id_enseignant = $id_enseignant;
-
-        return $this;
-    }
-
     /**
-     * @return Collection|Cours[]
+     * @return Collection|Enseignant[]
      */
-    public function getTest(): Collection
+    public function getEnseignant(): Collection
     {
-        return $this->cours_matiere;
+        return $this->enseignant;
     }
 
-    public function addTest(Cours $cours_matiere): self
+    public function addEnseignant(Enseignant $enseignant): self
     {
-        if (!$this->cours_matiere->contains($cours_matiere)) {
-            $this->cours_matiere[] = $cours_matiere;
-            $cours_matiere->setIdMatiere($this);
+        if (!$this->enseignant->contains($enseignant)) {
+            $this->enseignant[] = $enseignant;
         }
 
         return $this;
     }
 
-    public function removeTest(Cours $cours_matiere): self
+    public function removeEnseignant(Enseignant $enseignant): self
     {
-        if ($this->cours_matiere->contains($cours_matiere)) {
-            $this->cours_matiere->removeElement($cours_matiere);
-            // set the owning side to null (unless already changed)
-            if ($cours_matiere->getIdMatiere() === $this) {
-                $cours_matiere->setIdMatiere(null);
-            }
+        if ($this->enseignant->contains($enseignant)) {
+            $this->enseignant->removeElement($enseignant);
         }
 
         return $this;
@@ -134,7 +95,7 @@ class Matiere
     {
         if (!$this->devoirs->contains($devoir)) {
             $this->devoirs[] = $devoir;
-            $devoir->setIdMatiere($this);
+            $devoir->setMatiere($this);
         }
 
         return $this;
@@ -145,8 +106,8 @@ class Matiere
         if ($this->devoirs->contains($devoir)) {
             $this->devoirs->removeElement($devoir);
             // set the owning side to null (unless already changed)
-            if ($devoir->getIdMatiere() === $this) {
-                $devoir->setIdMatiere(null);
+            if ($devoir->getMatiere() === $this) {
+                $devoir->setMatiere(null);
             }
         }
 

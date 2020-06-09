@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EnseignantRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -16,11 +18,6 @@ class Enseignant
      * @ORM\Column(type="integer")
      */
     private $id;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $id_enseignant;
 
     /**
      * @ORM\Column(type="string", length=40)
@@ -43,25 +40,23 @@ class Enseignant
     private $mdp;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=20)
      */
     private $tel;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Matiere::class, mappedBy="enseignant")
+     */
+    private $matieres;
+
+    public function __construct()
+    {
+        $this->matieres = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getIdEnseignant(): ?int
-    {
-        return $this->id_enseignant;
-    }
-
-    public function setIdEnseignant(int $id_enseignant): self
-    {
-        $this->id_enseignant = $id_enseignant;
-
-        return $this;
     }
 
     public function getNom(): ?string
@@ -112,14 +107,42 @@ class Enseignant
         return $this;
     }
 
-    public function getTel(): ?int
+    public function getTel(): ?string
     {
         return $this->tel;
     }
 
-    public function setTel(int $tel): self
+    public function setTel(string $tel): self
     {
         $this->tel = $tel;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Matiere[]
+     */
+    public function getMatieres(): Collection
+    {
+        return $this->matieres;
+    }
+
+    public function addMatiere(Matiere $matiere): self
+    {
+        if (!$this->matieres->contains($matiere)) {
+            $this->matieres[] = $matiere;
+            $matiere->addEnseignant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMatiere(Matiere $matiere): self
+    {
+        if ($this->matieres->contains($matiere)) {
+            $this->matieres->removeElement($matiere);
+            $matiere->removeEnseignant($this);
+        }
 
         return $this;
     }

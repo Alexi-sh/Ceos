@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ElevesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -18,11 +20,6 @@ class Eleves
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $id_eleve;
-
-    /**
      * @ORM\Column(type="string", length=40)
      */
     private $nom;
@@ -33,7 +30,7 @@ class Eleves
     private $prenom;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string", length=255)
      */
     private $adresse;
 
@@ -48,7 +45,7 @@ class Eleves
     private $code_postal;
 
     /**
-     * @ORM\Column(type="string", length=40)
+     * @ORM\Column(type="string", length=255)
      */
     private $ville;
 
@@ -58,7 +55,7 @@ class Eleves
     private $date_naissance;
 
     /**
-     * @ORM\Column(type="string", length=40)
+     * @ORM\Column(type="string", length=255)
      */
     private $email;
 
@@ -68,25 +65,18 @@ class Eleves
     private $mdp;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\OneToMany(targetEntity=JoinEtudMatiere::class, mappedBy="eleve", orphanRemoval=true)
      */
-    private $id_classe;
+    private $eleve;
+
+    public function __construct()
+    {
+        $this->eleve = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getIdEleve(): ?int
-    {
-        return $this->id_eleve;
-    }
-
-    public function setIdEleve(int $id_eleve): self
-    {
-        $this->id_eleve = $id_eleve;
-
-        return $this;
     }
 
     public function getNom(): ?string
@@ -197,14 +187,33 @@ class Eleves
         return $this;
     }
 
-    public function getIdClasse(): ?int
+    /**
+     * @return Collection|JoinEtudMatiere[]
+     */
+    public function getEleve(): Collection
     {
-        return $this->id_classe;
+        return $this->eleve;
     }
 
-    public function setIdClasse(int $id_classe): self
+    public function addEleve(JoinEtudMatiere $eleve): self
     {
-        $this->id_classe = $id_classe;
+        if (!$this->eleve->contains($eleve)) {
+            $this->eleve[] = $eleve;
+            $eleve->setEleve($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEleve(JoinEtudMatiere $eleve): self
+    {
+        if ($this->eleve->contains($eleve)) {
+            $this->eleve->removeElement($eleve);
+            // set the owning side to null (unless already changed)
+            if ($eleve->getEleve() === $this) {
+                $eleve->setEleve(null);
+            }
+        }
 
         return $this;
     }
