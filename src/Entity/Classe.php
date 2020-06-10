@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\ClasseRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Column;
+use App\Repository\ClasseRepository;
 
 /**
  * @ORM\Entity(repositoryClass=ClasseRepository::class)
@@ -18,12 +19,12 @@ class Classe
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=10)
+     * @Column(type="integer", columnDefinition="ENUM('6', '5', '4','3')"))
      */
     private $niveau;
 
     /**
-     * @ORM\Column(type="string", length=10)
+     * @Column(type="string", columnDefinition="ENUM('A', 'B', 'C')"))
      */
     private $section;
 
