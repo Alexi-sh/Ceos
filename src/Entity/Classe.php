@@ -19,7 +19,7 @@ class Classe
     private $id;
 
     /**
-     * @Column(type="integer", columnDefinition="ENUM('6', '5', '4','3')"))
+     * @Column(type="string", columnDefinition="ENUM('6', '5', '4','3')"))
      */
     private $niveau;
 

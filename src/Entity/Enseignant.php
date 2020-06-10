@@ -36,12 +36,7 @@ class Enseignant
     /**
      * @ORM\Column(type="string", length=20)
      */
-    private $mdp;
-
-    /** 
-     * @ORM\Column(type="string", length=255) 
-    */ 
-    private $password; public $confirm_mdp;
+    private $password;
 
     /**
      * @Column(type="string", columnDefinition="ENUM('Français', 'Anglais', 'Mathématique','Histoire','Technologie')"))
@@ -89,14 +84,14 @@ class Enseignant
         return $this;
     }
 
-    public function getMdp(): ?string
+    public function getPassword(): ?string
     {
-        return $this->mdp;
+        return $this->password;
     }
 
-    public function setMdp(string $mdp): self
+    public function setPassword(string $password): self
     {
-        $this->mdp = $mdp;
+        $this->password = $password;
 
         return $this;
     }
