@@ -39,7 +39,7 @@ class Enseignant
     private $password;
 
     /**
-     * @Column(type="string", columnDefinition="ENUM('Français', 'Anglais', 'Mathématique','Histoire','Technologie')"))
+     * @ORM\Column(type="string", length=40))
      */
     private $matiere;
 
