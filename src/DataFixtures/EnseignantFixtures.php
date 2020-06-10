@@ -24,7 +24,7 @@ class EnseignantFixtures extends Fixture
             $enseignant ->setNom($nom)
                         ->setPrenom($prenom)
                         ->setEmail("$prenom.$nom@$fournisseurAcces")
-                        ->setMdp("mdp$i")
+                        ->setPassword("mdp$i")
                         ->setMatiere("$matiere");
 
                         $manager->persist($enseignant);

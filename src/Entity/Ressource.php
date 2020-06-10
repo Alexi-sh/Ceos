@@ -29,7 +29,7 @@ class Ressource
     private $Titre;
 
     /**
-     *@Column(type="string", columnDefinition="ENUM('devoir_a_rendre', 'devoir_rendu', 'cours')"))
+     *@ORM\Column(type="text")
      */
     private $Description;
 
