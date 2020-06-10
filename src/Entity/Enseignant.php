@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\EnseignantRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Column;
+use App\Repository\EnseignantRepository;
 
 /**
  * @ORM\Entity(repositoryClass=EnseignantRepository::class)
@@ -37,8 +38,13 @@ class Enseignant
      */
     private $mdp;
 
+    /** 
+     * @ORM\Column(type="string", length=255) 
+    */ 
+    private $password; public $confirm_mdp;
+
     /**
-     * @ORM\Column(type="string", length=255)
+     * @Column(type="string", columnDefinition="ENUM('Français', 'Anglais', 'Mathématique','Histoire','Technologie')"))
      */
     private $matiere;
 

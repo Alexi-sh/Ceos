@@ -19,7 +19,7 @@ class Ressource
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @Column(type="integer", columnDefinition="ENUM('cours', 'devoir_a_rendre', 'devoir_rendu')"))
      */
     private $type;
 

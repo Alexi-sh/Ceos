@@ -22,8 +22,6 @@ var app = {};
     }
 
 
-
-
     app.clickEleve = function() {
 
         $("#eleve").click(function() {
@@ -64,9 +62,6 @@ var app = {};
         app.clickProf();
 
     });
-
-
-
 
 
 })(jQuery);

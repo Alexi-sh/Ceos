@@ -17,7 +17,7 @@ class ClasseFixtures extends Fixture
 
             $classe = new Classe;
 
-            $classe->setNiveau($faker->randomElement($array = array ('6','5','4','3')))
+            $classe ->setNiveau($faker->randomElement($array = array ('6','5','4','3')))
                     ->setSection($faker->randomElement($array = array ('A','B','C')));
 
                     $manager->persist($classe);
