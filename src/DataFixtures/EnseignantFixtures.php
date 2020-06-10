@@ -4,11 +4,20 @@ namespace App\DataFixtures;
 
 use Faker\Factory;
 use App\Entity\Enseignant;
+use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-class EnseignantFixtures extends Fixture
+class EnseignantFixtures extends Fixture 
 {
+    private $encoder;
+
+    public function __construct(UserPasswordEncoderInterface $encoder)
+    {
+        $this->encoder = $encoder;
+    }
+
     public function load(ObjectManager $manager)
     {
         $faker = \Faker\Factory::create();
@@ -19,6 +28,7 @@ class EnseignantFixtures extends Fixture
             $nom = $faker->lastName;
             $prenom = $faker->firstName;
             $fournisseurAcces = $faker->freeEmailDomain;
+
             $matiere = $faker->randomElement($array = array ('Français','Anglais','Mathématique','Histoire','Technologie')); // 
 
             $enseignant ->setNom($nom)
@@ -26,9 +36,29 @@ class EnseignantFixtures extends Fixture
                         ->setEmail("$prenom.$nom@$fournisseurAcces")
                         ->setPassword("mdp$i")
                         ->setMatiere("$matiere");
+            
+            $hash = $this->encoder->encodePassword($enseignant, $enseignant->getPassword());
+            
+            $enseignant ->setPassword($hash);
 
-                        $manager->persist($enseignant);
+
+            $manager->persist($enseignant);
         }
+
+        $enseignant = new Enseignant;
+
+        $enseignant ->setNom("Cabare")
+                    ->setPrenom("mathieu")
+                    ->setEmail("mathieu.cabare@gmail.com")
+                    ->setPassword("mathieu")
+                    ->setMatiere("Histoire");
+
+                $hash = $this->encoder->encodePassword($enseignant, $enseignant->getPassword());
+    
+                $enseignant ->setPassword($hash);
+    
+    
+                $manager->persist($enseignant);
 
         
 
