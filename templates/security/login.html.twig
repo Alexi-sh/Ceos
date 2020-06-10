@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SecurityController!{% endblock %}
+
+{% block body %}
+
+<h1 class="display-5 text-center my-4">Identifiez-vous</h1>
+
+{% if error %}
+
+    <p class="bg-danger text-white p-2 col-md-5 mx-auto rounded text-center">{{ error.messageKey|trans(error.messageData,'security') }}</p>
+{% endif %}
+
+
+<form method="post" class="col-md-5 mx-auto" action="{{ path('login') }}">
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}"/>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" id="password" name="_password"/>
+    </div>   
+
+    <input type="hidden" name="_target_path" value="/professeur"/>
+
+    <button type="submit" class="btn btn-secondary">Connexion</button>
+</form>
+{% endblock %}

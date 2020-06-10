@@ -24,6 +24,7 @@ class RessourceFixtures extends Fixture
                       ->setLink($faker->sentence($nbWords = 6, $variableNbWords = true))
                       ->setCreateAt($faker->dateTimeAD($max = 'now', $timezone = 'Europe/Paris'));
 
+
                     $manager->persist($ressource);
         }
 
