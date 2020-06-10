@@ -1,20 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProfesseurController!{% endblock %}
+{% block title %}Zone Enseignant!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+{{ dump(ressource) }}
+<table class="table table-bordered col-md-8 mx-auto">
+{% for row in ressource %}
+<tr>
+    <td>{{ row.type }}</td>
+    <td>{{ row.Titre }}</td>
+    <td>{{ row.Description }}</td>
+    <td>{{ row.link }}</td>
+    <td>{{ row.createAt|date("d/m/Y") }}</td>
+   
+  </tr>
+  
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/SYMFONY/Ceos/src/Controller/ProfesseurController.php'|file_link(0) }}">src/Controller/ProfesseurController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/SYMFONY/Ceos/templates/professeur/index.html.twig'|file_link(0) }}">templates/professeur/index.html.twig</a></code></li>
-    </ul>
-</div>
+    
+{% endfor %}
+</table>
 {% endblock %}
