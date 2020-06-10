@@ -18,7 +18,7 @@ var app = {};
     }
 
     var redirectionIdentificationProf = function() {
-        window.location.href = "//localhost:8000/professeur";
+        window.location.href = "//localhost:8000/login";
     }
 
 
