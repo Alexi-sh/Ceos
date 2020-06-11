@@ -12,14 +12,19 @@ security:
 
         in_database:
             entity:
-                class: App\Entity\Enseignant, App\Entity\Eleve
+                class: App\Entity\Enseignant
+                property: email
+
+        in_database2:
+            entity:
+                class: App\Entity\Eleve
                 property: email
 
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        main:
+        defaut:
             anonymous: lazy
 
             provider: in_database

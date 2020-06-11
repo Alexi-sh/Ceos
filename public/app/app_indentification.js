@@ -14,7 +14,7 @@ var app = {};
     }
 
     var redirectionIdentificationEleve = function() {
-        window.location.href = "//localhost:8000/eleve";
+        window.location.href = "//localhost:8000/loginEleve";
     }
 
     var redirectionIdentificationProf = function() {
