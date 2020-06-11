@@ -4,7 +4,12 @@
 
 {% block body %}
 
-{{ dump(ressource) }}
+{# {{ dump(ressource) }} #}
+<div id="bienvenue">
+  {# <p> Bienvenue {{ enseignant.nom }}</p> #}
+</div>
+
+<div id="ressource" class="col-md-6 mt-5 d-none">
 <table class="table table-bordered col-md-8 mx-auto">
 {% for row in ressource %}
 <tr>
@@ -15,7 +20,7 @@
     <td>{{ row.createAt|date("d/m/Y") }}</td>
    
   </tr>
-  
+</div>
 
     
 {% endfor %}

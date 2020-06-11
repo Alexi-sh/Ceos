@@ -47,10 +47,10 @@ class EnseignantFixtures extends Fixture
 
         $enseignant = new Enseignant;
 
-        $enseignant ->setNom("Cabare")
-                    ->setPrenom("mathieu")
-                    ->setEmail("mathieu.cabare@gmail.com")
-                    ->setPassword("mathieu")
+        $enseignant ->setNom("admin")
+                    ->setPrenom("admin")
+                    ->setEmail("admin@gmail.com")
+                    ->setPassword("admin")
                     ->setMatiere("Histoire");
 
                 $hash = $this->encoder->encodePassword($enseignant, $enseignant->getPassword());
