@@ -24,7 +24,9 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        defaut:
+
+        Enseignant:
+
             anonymous: lazy
 
             provider: in_database
@@ -32,6 +34,15 @@ security:
             form_login: 
                 login_path: loginProf
                 check_path: loginProf
+
+        Eleve:
+            anonymous: lazy
+
+            provider: in_database2
+
+            form_login: 
+                login_path: loginEleve
+                check_path: loginEleve
 
 
             # activate different ways to authenticate
