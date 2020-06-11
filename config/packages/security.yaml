@@ -1,6 +1,8 @@
 security:
 
     encoders:
+        App\Entity\Eleve:
+            algorithm: bcrypt
         App\Entity\Enseignant:
             algorithm: bcrypt
 
@@ -10,7 +12,7 @@ security:
 
         in_database:
             entity:
-                class: App\Entity\Enseignant
+                class: App\Entity\Enseignant, App\Entity\Eleve
                 property: email
 
     firewalls:
@@ -23,8 +25,8 @@ security:
             provider: in_database
 
             form_login: 
-                login_path: login
-                check_path: login
+                login_path: loginProf
+                check_path: loginProf
 
 
             # activate different ways to authenticate
