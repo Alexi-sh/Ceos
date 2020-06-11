@@ -23,7 +23,7 @@ class EleveFixtures extends Fixture
 
         $faker = \Faker\Factory::create();
 
-        for ($i = 1; $i <= 50; $i++) {
+        for ($i = 1; $i <= 10; $i++) {
 
             $eleve = new Eleve;
             $nom = $faker->lastName;
