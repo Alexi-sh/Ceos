@@ -12,14 +12,19 @@ security:
 
         in_database:
             entity:
-                class: App\Entity\Enseignant, App\Entity\Eleve
+                class: App\Entity\Enseignant
+                property: email
+
+        in_database2:
+            entity:
+                class: App\Entity\Eleve
                 property: email
 
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        main:
+        Enseignant:
             anonymous: lazy
 
             provider: in_database
@@ -27,6 +32,15 @@ security:
             form_login: 
                 login_path: loginProf
                 check_path: loginProf
+
+        Eleve:
+            anonymous: lazy
+
+            provider: in_database2
+
+            form_login: 
+                login_path: loginEleve
+                check_path: loginEleve
 
 
             # activate different ways to authenticate
