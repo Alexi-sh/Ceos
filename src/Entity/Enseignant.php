@@ -44,7 +44,9 @@ class Enseignant implements UserInterface
      */
     private $matiere;
 
-
+    /**
+     * @ORM\Column(type="json")
+     */
     private $Roles = [];
 
     public function getId(): ?int
@@ -121,6 +123,13 @@ class Enseignant implements UserInterface
 
     public function getSalt() {}
 
-    public function getRoles() { return ['ROLE_PROF_USER'];}
+    public function getRoles() { return ['ROLE_USER'];}
+
+    public function setRoles(array $Roles): self
+    {
+        $this->Roles = $Roles;
+
+        return $this;
+    }
 
 }

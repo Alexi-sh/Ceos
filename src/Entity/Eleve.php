@@ -38,6 +38,11 @@ class Eleve implements UserInterface
      */
     private $password;
 
+    /**
+     * @ORM\Column(type="json")
+     */
+    private $Roles = [];
+
     public function getId(): ?int
     {
         return $this->id;
@@ -100,5 +105,12 @@ class Eleve implements UserInterface
 
     public function getSalt() {}
 
-    public function getRoles() { return ['ROLE_ELEVE_USER'];}
+    public function getRoles() { return ['ROLE_USER_ELEVE'];}
+
+    public function setRoles(array $Roles): self
+    {
+        $this->Roles = $Roles;
+
+        return $this;
+    }
 }
