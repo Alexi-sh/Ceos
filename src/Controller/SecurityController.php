@@ -14,35 +14,27 @@ class SecurityController extends AbstractController
      * @Route("/loginProf", name="loginProf")
      * 
      */
-    public function loginProf(AuthenticationUtils $authenticationUtils)
-    {
-    // get the login error if there is one
-    $error = $authenticationUtils->getLastAuthenticationError();
+    public function loginProf(AuthenticationUtils $authenticationUtils){
+        
+        // get the login error if there is one
+        $error = $authenticationUtils->getLastAuthenticationError();
 
-    // last username entered by the user
-    $lastUsername = $authenticationUtils->getLastUsername();
+        // last username entered by the user
+        $lastUsername = $authenticationUtils->getLastUsername();
 
-    return $this->render('security/loginProf.html.twig', [
-        'last_username' => $lastUsername,
-        'error'         => $error,
-    ]);
+        return $this->render('security/loginProf.html.twig', [
+            'last_username' => $lastUsername,
+            'error'         => $error,
+        ]);
     }
 
-    /**
-     * @Route("/loginEleve", name="loginEleve")
-     * 
-     */
-    public function loginEleve(AuthenticationUtils $authenticationUtils)
-{
-    // get the login error if there is one
-    $error = $authenticationUtils->getLastAuthenticationError();
+    public function redirection(){
+        
+        if($this->getUser()->hasRole('ROLE_USER'))
+            return $this->redirect($this->generateUrl('professeur'));
+        else if($this->getUser()->hasRole('ROLE_USER_ELEVE'))
+            return $this->redirect($this->generateUrl('eleve'));
+    }
 
-    // last username entered by the user
-    $lastUsername = $authenticationUtils->getLastUsername();
+}
 
-    return $this->render('security/loginEleve.html.twig', [
-        'last_username' => $lastUsername,
-        'error'         => $error,
-    ]);
-}
-}
