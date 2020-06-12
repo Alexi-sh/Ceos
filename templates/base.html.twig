@@ -7,34 +7,49 @@
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
             <link rel="stylesheet" href="{{ asset('css/style.css') }}">
             <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
-            <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Scheherazade&display=swap" rel="stylesheet"> 
+            <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Scheherazade&display=swap" rel="stylesheet">
+            <script src="https://kit.fontawesome.com/e3379748bc.js" crossorigin="anonymous"></script>
         {% endblock %}
     </head>
     <body>
-    <div class="container col-md-12" style="opacity : 0">
+    <div class="container col-md-12">
         <div class="col-md-10 mx-auto">
             <nav class="navbar navbar-expand-lg bg-warning rounded">
                 <a class="navbar-brand text-danger ml-5 mr-5" href="{{ path('identification') }}">
                     <h1 class="ceos ml-3"><span class="majuscule">C</span>éos</h1>
                 </a>
-                <div class="collapse navbar-collapse ml-5" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <div class="d-flex justify-content-between" id="navbarNav">
+                    <div class="lien text-center"><a class="text-decoration-none text-reset" href="#">Mes devoirs</a></div>
+                    <div class="lien text-center"><a class="text-decoration-none text-reset" href="#">Mes cours</a></div>
+                    <div class="lien text-center"><a class="text-decoration-none text-reset" href="#">Contacter professeur</a></div>
+                    {# <ul class="navbar-nav ">
+                        <li class=" mr-4">
+                            <div class="liens"><a class="text-decoration-none text-reset" href="#">Mes devoirs</a></di>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
+                        <li class=" mr-4">
+                            <div class="liens"><a class="text-decoration-none text-reset" href="#">Mes cours</a></di>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
+                        <li class=" mr-4">
+                            <div class="liens"><a class="text-decoration-none text-reset" href="#">Contacter professeur</a></di>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        <li class=" mr-4">
+                            <a class="text-decoration-none text-reset disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                         </li>
-                    </ul>
+
+                    </ul> #}
+                    
                 </div>
+                    {% if user  %}      
+
+                        <div id="bienvenue" class="pt-3 text-right">
+                            <p> Bienvenue {{ user.prenom }}</p>
+                        </div>
+
+                    {% endif %}
             </nav>
+            
         </div>
+
 
 
         {% block body %}{% endblock %}

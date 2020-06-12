@@ -23,6 +23,10 @@ var app = {};
     //     }, 800);
     // }
 
+    $filtreRessource = $('.container').animate({
+        "opacity": "1"
+    }, 1800);
+
     $document.ready(function() {
         $fadeInOuverturePage;
 

@@ -10,6 +10,38 @@
     font-family: 'Luckiest Guy', cursive;
 }
 
+.lien {
+    width: 15vw;
+}
+
+.lien a:hover {
+    font-weight: bold !important;
+}
+
 h1 span {
     font-size: 1.3em;
+}
+
+#bienvenue {
+    height: 100%;
+    width: 100%;
+    font-size: 0.8em;
+    opacity: 1;
+    font-family: 'Luckiest Guy', cursive;
+}
+
+#ressource {
+    font-size: 0.7em;
+}
+
+#ressource h2 {
+    font-family: 'Luckiest Guy', cursive;
+}
+
+.cellue_ressource {
+    width: 20%;
+}
+
+.cellue_ressource a {
+    text-decoration: none;
 }
