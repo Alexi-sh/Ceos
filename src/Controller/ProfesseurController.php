@@ -3,8 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Ressource;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ProfesseurController extends AbstractController
 {
@@ -15,9 +16,31 @@ class ProfesseurController extends AbstractController
     {
 
         $ressource = $this->getDoctrine()->getRepository(Ressource::class)->findAll();
+        $user = $this->get('security.token_storage')->getToken()->getUser();
 
         return $this->render('professeur/index.html.twig', [
-            'ressource' => $ressource
+            'ressource' => $ressource,
+            'user' => $user
         ]);
     }
+
+
 }
+
+// class SomeClass
+// {
+//     /**
+//      * @var Security
+//      */
+//     private $security;
+
+//     public function __construct(Security $security)
+//     {
+//        $this->security = $security;
+//     }
+
+//     public function privatePage(): Response
+//     {
+//         $user = $this->security->getUser(); 
+//     }
+// }
