@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
@@ -10,6 +12,7 @@ class SecurityController extends AbstractController
 {
     /**
      * @Route("/loginProf", name="loginProf")
+     * 
      */
     public function loginProf(AuthenticationUtils $authenticationUtils)
     {
@@ -27,6 +30,7 @@ class SecurityController extends AbstractController
 
     /**
      * @Route("/loginEleve", name="loginEleve")
+     * 
      */
     public function loginEleve(AuthenticationUtils $authenticationUtils)
 {

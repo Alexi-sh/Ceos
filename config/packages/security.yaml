@@ -1,8 +1,6 @@
 security:
 
     encoders:
-        App\Entity\Eleve:
-            algorithm: bcrypt
         App\Entity\Enseignant:
             algorithm: bcrypt
 
@@ -15,34 +13,23 @@ security:
                 class: App\Entity\Enseignant
                 property: email
 
-        in_database2:
-            entity:
-                class: App\Entity\Eleve
-                property: email
 
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        Enseignant:
+        main:
 
-            anonymous: lazy
+            pattern: ^/
+
+            anonymous : lazy 
 
             provider: in_database
 
             form_login: 
                 login_path: loginProf
                 check_path: loginProf
-
-        Eleve:
-            anonymous: lazy
-
-            provider: in_database2
-
-            form_login: 
-                login_path: loginEleve
-                check_path: loginEleve
 
 
             # activate different ways to authenticate
@@ -55,5 +42,5 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
-        # - { path: ^/professeur, roles: ROLE_USER }
+        # - { path: ^/loginProf, roles: ROLE_USER }
+        # - { path: ^/loginEleve, roles: ROLE_ELEVE_USER }
