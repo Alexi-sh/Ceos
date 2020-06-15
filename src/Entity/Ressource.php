@@ -89,12 +89,12 @@ class Ressource
         return $this;
     }
 
-    public function getLink(): ?string
+    public function getLink()
     {
         return $this->link;
     }
 
-    public function setLink(?string $link): self
+    public function setLink($link)
     {
         $this->link = $link;
 
