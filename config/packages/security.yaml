@@ -36,8 +36,8 @@ security:
             provider: chain_provider
 
             form_login: 
-                login_path: loginProf
-                check_path: loginProf
+                login_path: login
+                check_path: redirection
 
 
             # activate different ways to authenticate
@@ -50,5 +50,5 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
-        #  - { path: ^/professeur, roles: ROLE_USER }
-        #  - { path: ^/eleve, roles: ROLE_USER_ELEVE }
+          - { path: ^/professeur, roles: ROLE_USER }
+          - { path: ^/eleve, roles: ROLE_USER_ELEVE }

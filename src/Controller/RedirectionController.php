@@ -14,7 +14,7 @@ class RedirectionController extends AbstractController
      */
     public function index()
     {
-        $user = $this->get('security.token_storage')->getToken()->getUser();
+        //$user = $this->get('security.token_storage')->getToken()->getUser();
 
         if($this->container->get('security.authorization_checker')->isGranted('ROLE_USER'))
             return $this->redirect($this->generateUrl('professeur'));
