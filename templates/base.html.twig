@@ -32,33 +32,39 @@
 						<div class="lien text-center">
 							<a class="text-decoration-none text-reset" href="#">Contacter professeur</a>
 						</div>
+						<div class="lien text-right text-success">
+							<p>Date :
+								{{ date().timestamp |date('d. M Y')}}</p>
+						</div>
+
+
 						{# <ul class="navbar-nav ">
-													<li class=" mr-4">
-														<div class="liens"><a class="text-decoration-none text-reset" href="#">Mes devoirs</a></di>
-													</li>
-													<li class=" mr-4">
-														<div class="liens"><a class="text-decoration-none text-reset" href="#">Mes cours</a></di>
-													</li>
-													<li class=" mr-4">
-														<div class="liens"><a class="text-decoration-none text-reset" href="#">Contacter professeur</a></di>
-													</li>
-														<li class=" mr-4">
-															<a class="text-decoration-none text-reset disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-														</li>
-												
-												</ul> #}
+																																											<li class=" mr-4">
+																																												<div class="liens"><a class="text-decoration-none text-reset" href="#">Mes devoirs</a></di>
+																																											</li>
+																																											<li class=" mr-4">
+																																												<div class="liens"><a class="text-decoration-none text-reset" href="#">Mes cours</a></di>
+																																											</li>
+																																											<li class=" mr-4">
+																																												<div class="liens"><a class="text-decoration-none text-reset" href="#">Contacter professeur</a></di>
+																																											</li>
+																																												<li class=" mr-4">
+																																													<a class="text-decoration-none text-reset disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+																																												</li>
+																																										
+																																										</ul> #}
 
 					</div>
 					{# {% if user is defined  %}
-					
-					
-											<div id="bienvenue" class="pt-3 text-right">
-												<p>
-													Bonjour
-													{{ user.prenom }}</p>
-											</div>
-					
-										{% endif %} #}
+																														
+																														
+																																				<div id="bienvenue" class="pt-3 text-right">
+																																					<p>
+																																						Bonjour
+																																						{{ user.prenom }}</p>
+																																				</div>
+																														
+																																			{% endif %} #}
 				</nav>
 
 			</div>
