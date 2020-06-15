@@ -14,11 +14,11 @@ var app = {};
     }
 
     var redirectionIdentificationEleve = function() {
-        window.location.href = "//localhost:8000/loginEleve";
+        window.location.href = "//localhost:8000/login";
     }
 
     var redirectionIdentificationProf = function() {
-        window.location.href = "//localhost:8000/loginProf";
+        window.location.href = "//localhost:8000/login";
     }
 
 
