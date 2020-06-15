@@ -42,6 +42,15 @@ h1 span {
     width: 20%;
 }
 
-.cellue_ressource a {
-    text-decoration: none;
+#appRessouces a {
+    text-decoration: none !important;
+}
+
+#appRessouces a:hover {
+    font-weight: bold !important;
+}
+
+.creationRessource h1 {
+    font-size: 1.5em;
+    font-family: 'Luckiest Guy', cursive;
 }

@@ -50,5 +50,5 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
-         - { path: ^/professeur, roles: ROLE_USER }
-         - { path: ^/eleve, roles: ROLE_USER_ELEVE }
+        #  - { path: ^/professeur, roles: ROLE_USER }
+        #  - { path: ^/eleve, roles: ROLE_USER_ELEVE }

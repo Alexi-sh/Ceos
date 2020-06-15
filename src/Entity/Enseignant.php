@@ -119,11 +119,18 @@ class Enseignant implements UserInterface
         return $this->email;
     }
 
-    public function eraseCredentials() {}
+    public function eraseCredentials()
+    {
+    }
 
-    public function getSalt() {}
+    public function getSalt()
+    {
+    }
 
-    public function getRoles() { return ['ROLE_USER'];}
+    public function getRoles()
+    {
+        return ['ROLE_USER'];
+    }
 
     public function setRoles(array $Roles): self
     {
@@ -131,5 +138,4 @@ class Enseignant implements UserInterface
 
         return $this;
     }
-
 }
