@@ -44,7 +44,11 @@ class ProfesseurController extends AbstractController
         $ressource->setCreateAt(new \DateTime());
 
         $form->handleRequest($request);
-        dump($ressource);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $manager->persist($ressource);
+            $manager->flush();
+        }
+
 
         return $this->render('professeur/createRessource.html.twig', ['formRessource' => $form->createView()]);
     }
