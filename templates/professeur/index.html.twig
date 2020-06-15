@@ -1,32 +1,45 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Zone Enseignant!{% endblock %}
+{% block title %}Zone Enseignant!
+{% endblock %}
 
 {% block body %}
 
-{# {{ dump(ressource) }} #}
+	{# {{ dump(ressource) }} #}
 
-<div class="container_corps col-md-10 mx-auto">
+	<div class="container_corps col-md-10 mx-auto">
 
-  <div id="ressource" class="col-md-6 mt-5 table-responsive bg-success rounded">
-      <h2 class="text-center font-weight-bold mt-4 text-dark">Liste des cours et devoirs</h2>
-      <table class="table table-borderless mt-4">
-          
-          <tr class="text-center text-dark">
-              <th class="cellue_ressource"><div class="bg-warning rounded col-md-10">Statut</div></th>
-              <th class="cellue_ressource"><div class="bg-warning rounded col-md-10">Titre</div></th>
-              <th class="cellue_ressource"><div class="bg-warning rounded col-md-10">Fichier</div></th>
-              <th class="cellue_ressource"><div class="bg-warning rounded col-md-10">Pour le</div></th>
-          </tr>
-          {% for row in ressource %}
-          <tr class="mb-5 border-bottom border-dark">
-              <td class="pl-3">{{ row.type }}</td>
-              <td class="pl-3">{{ row.Titre }}</td>
-              <td class="text-center pr-4"><a href="{{ row.link }}"><i class="fas fa-file-upload text-dark text-center"></i></a></td>
-              <td class="pl-3">{{ row.createAt|date("d/m/Y") }}</td>
-          
-          </tr>
-          {% endfor %}
-      </table>
-  </div>
-{% endblock %}
+		<div id="ressource" class="col-md-6 mt-5 table-responsive bg-success rounded">
+			<h2 class="text-center font-weight-bold mt-4 text-dark">Liste des cours et devoirs</h2>
+			<table class="table table-borderless mt-4">
+
+				<tr class="text-center text-dark">
+					<th class="cellue_ressource">
+						<div class="bg-warning rounded col-md-10">Statut</div>
+					</th>
+					<th class="cellue_ressource">
+						<div class="bg-warning rounded col-md-10">Titre</div>
+					</th>
+					<th class="cellue_ressource">
+						<div class="bg-warning rounded col-md-10">Fichier</div>
+					</th>
+					<th class="cellue_ressource">
+						<div class="bg-warning rounded col-md-10">Pour le</div>
+					</th>
+				</tr>
+				{% for row in ressource %}
+					<tr class="mb-5 border-bottom border-dark">
+						<td class="pl-3">{{ row.type }}</td>
+						<td class="pl-3">{{ row.Titre }}</td>
+						<td class="text-center pr-4">
+							<a href="{{ row.link }}">
+								<i class="fas fa-file-upload text-dark text-center"></i>
+							</a>
+						</td>
+						<td class="pl-3">{{ row.createAt|date("d/m/Y") }}</td>
+					</tr>
+
+				{% endfor %}
+			</table>
+		</div>
+	{% endblock %}

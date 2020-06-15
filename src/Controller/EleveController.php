@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Ressource;
+use App\Repository\EnseignantRepository;
 use App\Repository\RessourceRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,16 +13,18 @@ class EleveController extends AbstractController
     /**
      * @Route("/eleve", name="eleve")
      */
-    public function index(RessourceRepository $repo)
+    public function index(RessourceRepository $repo, EnseignantRepository $prof)
     {
 
         // $ressource = $repo->findAll();
-        $ressource = $repo->findBy(array(),array('createAt' => 'ASC'));
+        $ressource = $repo->findBy(array(), array('createAt' => 'DESC'));
+        $ContactProf = $prof->findAll();
         $user = $this->get('security.token_storage')->getToken()->getUser();
 
         return $this->render('eleve/index.html.twig', [
             'ressource' => $ressource,
-            'user' => $user
+            'user' => $user,
+            'enseigant' => $ContactProf
         ]);
     }
 }

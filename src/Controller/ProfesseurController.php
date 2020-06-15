@@ -2,9 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Classe;
 use App\Entity\Ressource;
+use App\Form\RessourceType;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\Test\FormBuilderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ProfesseurController extends AbstractController
@@ -24,7 +29,25 @@ class ProfesseurController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/professeur/AjouterRessource", name="creatRessource")
+     */
+    public function create(Request $request, EntityManagerInterface $manager)
+    {
+        $ressource = new Ressource();
+        $classe = new Classe();
 
+
+
+        $form = $this->createForm(RessourceType::class, $ressource);
+
+        $ressource->setCreateAt(new \DateTime());
+
+        $form->handleRequest($request);
+        dump($ressource);
+
+        return $this->render('professeur/createRessource.html.twig', ['formRessource' => $form->createView()]);
+    }
 }
 
 // class SomeClass
