@@ -29,12 +29,5 @@ class SecurityController extends AbstractController
         ]);
     }
 
-    public function redirection()
-    {
-
-        if ($this->getUser()->hasRole('ROLE_USER'))
-            return $this->redirect($this->generateUrl('professeur'));
-        else if ($this->getUser()->hasRole('ROLE_USER_ELEVE'))
-            return $this->redirect($this->generateUrl('eleve'));
-    }
+   
 }
