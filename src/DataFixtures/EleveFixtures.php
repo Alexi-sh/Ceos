@@ -40,9 +40,6 @@ class EleveFixtures extends Fixture
             $eleve->setPassword($hash);
 
             $manager->persist($eleve);
-
-
-            $manager->flush();
         }
 
 
@@ -50,18 +47,18 @@ class EleveFixtures extends Fixture
 
         $eleve = new Eleve;
 
-        $eleve ->setNom("admin")
-                    ->setPrenom("admin")
-                    ->setEmail("admin@gmail.com")
-                    ->setPassword("admin");
+        $eleve->setNom("adminE")
+            ->setPrenom("adminE")
+            ->setEmail("adminE@gmail.com")
+            ->setPassword("adminE");
 
-                $hash = $this->encoder->encodePassword($eleve, $eleve->getPassword());
-    
-                $eleve ->setPassword($hash);
-    
-    
-                $manager->persist($eleve);
+        $hash = $this->encoder->encodePassword($eleve, $eleve->getPassword());
 
+        $eleve->setPassword($hash);
+
+
+        $manager->persist($eleve);
+
+        $manager->flush();
     }
-
 }

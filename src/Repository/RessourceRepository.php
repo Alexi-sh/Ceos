@@ -22,7 +22,7 @@ class RessourceRepository extends ServiceEntityRepository
     // /**
     // * @return Ressource[] Returns an array of Ressource objects
     // */
-    
+
     // public function findByDevoir($value)
     // {
     //     return $this->createQueryBuilder('r')
@@ -34,7 +34,7 @@ class RessourceRepository extends ServiceEntityRepository
     //         ->getResult()
     //     ;
     // }
-    
+
 
     /*
     public function findOneBySomeField($value): ?Ressource
