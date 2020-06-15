@@ -45,6 +45,11 @@ class ProfesseurController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $ressource->getLink();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move($this->getParameter('upload_directory'),$fileName);
+            $ressource->setLink($fileName);
+
             $manager->persist($ressource);
             $manager->flush();
         }
