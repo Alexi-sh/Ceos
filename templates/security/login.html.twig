@@ -15,7 +15,8 @@
 	{% endif %}
 
 
-	<form method="post" class="col-md-5 mx-auto" action="{{ path('login') }}">
+	<form method="post" class="col-md-5 mx-auto" action="{{ path('redirection') }}">
+
 		<div class="form-group">
 			<label for="username">Username:</label>
 			<input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}"/>
@@ -26,7 +27,7 @@
 			<input type="password" class="form-control" id="password" name="_password"/>
 		</div>
 
-		<input type="hidden" name="_target_path" value="{{ path("redirection")}}"/>
+		{# <input type="hidden" name="_target_path" value="{{ path("redirection")}}"/> #}
 
 
 		<button type="submit" class="btn btn-secondary">Connexion</button>
