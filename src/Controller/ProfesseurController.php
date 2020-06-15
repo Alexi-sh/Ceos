@@ -17,10 +17,10 @@ class ProfesseurController extends AbstractController
     /**
      * @Route("/professeur", name="professeur")
      */
-    public function index()
+    public function index(EntityManagerInterface $manager)
     {
 
-        $ressource = $this->getDoctrine()->getRepository(Ressource::class)->findAll();
+        $ressource = $this->getDoctrine()->getRepository(Ressource::class)->findBy(array(), array('date_limite' => 'ASC'), 10);
         $user = $this->get('security.token_storage')->getToken()->getUser();
 
         return $this->render('professeur/index.html.twig', [
@@ -35,7 +35,7 @@ class ProfesseurController extends AbstractController
     public function create(Request $request, EntityManagerInterface $manager)
     {
         $ressource = new Ressource();
-        $classe = new Classe();
+
 
 
 

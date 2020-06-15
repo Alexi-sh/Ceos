@@ -13,19 +13,19 @@ class RessourceFixtures extends Fixture
     {
         $faker = \Faker\Factory::create();
 
-        for($i= 1; $i <= 6; $i ++){
+        for ($i = 1; $i <= 50; $i++) {
 
             $ressource = new Ressource;
 
-            $ressource->setType($faker->randomElement($array = array ('cours','devoir_a_rendre','devoir_rendu')))
-                      ->setTitre($faker->word())
-                      ->setDescription($faker->paragraph($nbSentences = 5, $variableNbSentences = true))
-                      ->setDatelimite($faker->dateTimeBetween($startDate = 'now', $endDate = '+2weeks', $timezone = 'Europe/Paris'))
-                      ->setLink($faker->sentence($nbWords = 6, $variableNbWords = true))
-                      ->setCreateAt($faker->dateTimeAD($max = 'now', $timezone = 'Europe/Paris'));
+            $ressource->setType($faker->randomElement($array = array('cours', 'devoir_a_rendre', 'devoir_rendu')))
+                ->setTitre($faker->word())
+                ->setDescription($faker->paragraph($nbSentences = 5, $variableNbSentences = true))
+                ->setDatelimite($faker->dateTimeBetween($startDate = 'now', $endDate = '+2weeks', $timezone = 'Europe/Paris'))
+                ->setLink($faker->sentence($nbWords = 6, $variableNbWords = true))
+                ->setCreateAt($faker->dateTimeAD($max = 'now', $timezone = 'Europe/Paris'));
 
 
-                    $manager->persist($ressource);
+            $manager->persist($ressource);
         }
 
         $manager->flush();

@@ -5,24 +5,25 @@
 	<div class="creationRessource bg-primary rounded col-md-6 mx-auto mt-3">
 
 		<h1 class="pt-3 mb-3">Création d'une ressource pédagogique</h1>
+		<div class="d-flex">
+			{{ form_row(formRessource.type) }}
+			{{ form_row(formRessource.link, {'label' : 'Envoyer fichier'}) }}
 
+
+		</div>
 		{{ form_start(formRessource) }}
 
 		{{ form_row(formRessource.Titre) }}
 
 
-		{{ form_row(formRessource.type) }}
-
 		{{ form_row(formRessource.Description) }}
-
-		{{ form_row(formRessource.link, {'label' : 'Envoyer fichier'}) }}
 
 		<label>A faire pour le</label>
 		{{ form_widget(formRessource.date_limite, {'label' : 'Envoyer fichier'}) }}
 
 
 		{# {{timestamp|date('d. M Y')}} #}
-		<button type="submit" class="btn btn-success mb-3">
+		<button type="submit" class="btn btn-success mb-3 mt-3">
 			Ajouter la ressource</button>
 
 
@@ -31,24 +32,24 @@
 
 
 	{# <form action="" method="post">
-																			<label>Titre</label>
-																			<select name="niveau">
-																				<option value="volvo">Volvo</option>
-																			</select>
-																			<label>Titre</label>
-																			<select name="section">
-																				<option value="volvo">Volvo</option>
-																			</select>
-																			<label>Titre</label>
-																			<input type="text" name="titre">
-																			<label>Type</label>
-																			<textarea name="type"></textarea>
-																			<label>Description</label>
-																			<textarea name="descritpion"></textarea>
-																			<label>Fichier</label>
-																			<input type="text" name="fichier">
-																			<input type="submit" value="Enregistrer">
-																	
-																		</form> #}
+																								<label>Titre</label>
+																								<select name="niveau">
+																									<option value="volvo">Volvo</option>
+																								</select>
+																								<label>Titre</label>
+																								<select name="section">
+																									<option value="volvo">Volvo</option>
+																								</select>
+																								<label>Titre</label>
+																								<input type="text" name="titre">
+																								<label>Type</label>
+																								<textarea name="type"></textarea>
+																								<label>Description</label>
+																								<textarea name="descritpion"></textarea>
+																								<label>Fichier</label>
+																								<input type="text" name="fichier">
+																								<input type="submit" value="Enregistrer">
+																						
+																							</form> #}
 
 {% endblock %}
