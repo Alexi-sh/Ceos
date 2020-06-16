@@ -25,7 +25,6 @@ class RessourceType extends AbstractType
             ])
             ->add('Titre')
             ->add('Description')
-            // ->add('link')
             ->add('link', FileType::class, [
                 'label' => 'Fichier à joindre',
 
