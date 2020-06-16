@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20200616091008 extends AbstractMigration
+final class Version20200616135024 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,10 +22,10 @@ final class Version20200616091008 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
+        $this->addSql('ALTER TABLE ressource CHANGE type type ENUM(\'Cours\', \'Devoir\'), CHANGE link link VARCHAR(255) DEFAULT NULL, CHANGE date_limite datelimite DATE NOT NULL');
         $this->addSql('ALTER TABLE classe CHANGE niveau niveau ENUM(\'6\', \'5\', \'4\',\'3\'), CHANGE section section ENUM(\'A\', \'B\', \'C\')');
         $this->addSql('ALTER TABLE eleve CHANGE roles roles JSON NOT NULL');
         $this->addSql('ALTER TABLE enseignant CHANGE roles roles JSON NOT NULL');
-        $this->addSql('ALTER TABLE ressource CHANGE type type ENUM(\'cours\', \'devoir_a_rendre\', \'devoir_rendu\'), CHANGE link link VARCHAR(255) DEFAULT NULL, CHANGE date_limite datelimite DATE NOT NULL');
     }
 
     public function down(Schema $schema) : void

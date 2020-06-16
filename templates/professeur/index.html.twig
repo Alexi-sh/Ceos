@@ -5,7 +5,7 @@
 
 {% block body %}
 
-	{# {{ dump(ressource) }} #}
+	<!-- {{ dump(ressource) }}  -->
 
 	<div class="container_corps col-md-10 mt-3 mx-auto d-flex justify-content-around">
 
@@ -32,7 +32,7 @@
 						<td class="pl-3">{{ row.type }}</td>
 						<td class="pl-3">{{ row.Titre }}</td>
 						<td class="text-center pr-4">
-							<a href="{{ row.link }}">
+							<a href="{{ asset('uploads/') ~ row.link}}">
 								<i class="fas fa-file-upload text-dark text-center"></i>
 							</a>
 						</td>
@@ -40,8 +40,6 @@
 
 
 					</tr>
-					{# ("d/m/Y") #}
-
 				{% endfor %}
 			</table>
 		</div>
