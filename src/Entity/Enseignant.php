@@ -49,11 +49,6 @@ class Enseignant implements UserInterface
      */
     private $Roles = [];
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $idprof;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -140,18 +135,6 @@ class Enseignant implements UserInterface
     public function setRoles(array $Roles): self
     {
         $this->Roles = $Roles;
-
-        return $this;
-    }
-
-    public function getIdprof(): ?int
-    {
-        return $this->idprof;
-    }
-
-    public function setIdprof(int $idprof): self
-    {
-        $this->idprof = $idprof;
 
         return $this;
     }

@@ -15,8 +15,7 @@ class EleveController extends AbstractController
      * @Route("/eleve", name="eleve")
      */
     public function index(RessourceRepository $repo, EnseignantRepository $prof)
-    {
-
+    {;
         // $ressource = $repo->findAll();
         $ressource = $repo->findBy(array(), array('datelimite' => 'asc'), 6, null);
         $ContactProf = $prof->findAll();

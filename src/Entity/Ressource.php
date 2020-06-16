@@ -48,6 +48,11 @@ class Ressource
      */
     private $datelimite;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $prof;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -121,6 +126,18 @@ class Ressource
     public function setDateLimite(\DateTimeInterface $datelimite): self
     {
         $this->datelimite = $datelimite;
+
+        return $this;
+    }
+
+    public function getProf(): ?int
+    {
+        return $this->prof;
+    }
+
+    public function setProf(int $prof): self
+    {
+        $this->prof = $prof;
 
         return $this;
     }

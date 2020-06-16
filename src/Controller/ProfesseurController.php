@@ -21,9 +21,10 @@ class ProfesseurController extends AbstractController
      */
     public function index(EntityManagerInterface $manager)
     {
-
-        $ressource = $this->getDoctrine()->getRepository(Ressource::class)->findBy(array(), array('datelimite' => 'desc'), 10, null);
         $user = $this->get('security.token_storage')->getToken()->getUser();
+        $userId = $user->getId();
+        $ressource = $this->getDoctrine()->getRepository(Ressource::class)->findBy(array('prof' => $userId), array('datelimite' => 'desc'), 10, null);
+
         dump($ressource);
         return $this->render('professeur/index.html.twig', [
             'ressource' => $ressource,
@@ -37,11 +38,15 @@ class ProfesseurController extends AbstractController
     public function create(Request $request, EntityManagerInterface $manager)
     {
         $ressource = new Ressource();
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+        $userId = $user->getId();
+
+
 
         $form = $this->createForm(RessourceType::class, $ressource);
 
         $ressource->setCreateAt(new \DateTime());
-
+        $ressource->setProf($userId);
         $form->handleRequest($request);
 
         dump($request);
@@ -53,11 +58,11 @@ class ProfesseurController extends AbstractController
             $file = $form['link']->getData();
             dump($file);
 
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
-            $file->move($this->getParameter('upload_directory'),$fileName);
+            $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+            $file->move($this->getParameter('upload_directory'), $fileName);
             $ressource->setLink($fileName);
 
-            
+
 
             $manager->persist($ressource);
             $manager->flush();
