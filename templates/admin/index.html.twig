@@ -1,44 +1,49 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 
-<div class="d-flex">
-    <div class="creationAjoutEleve bg-success rounded col-md-5 mx-auto mt-3">
+	<div class="d-flex col-md-10 mx-auto">
 
-        <h1 class="pt-3 mb-3 text-center">Ajouter un éleve </h1>
+		<div class="creationAjoutEleve bg-success rounded col-md-5 mx-auto mt-3">
 
-        {{ form_start(formAjoutEleve) }}
+			<h1 class="pt-3 mb-3 text-center">Ajouter un éleve
+			</h1>
 
-        {{ form_row(formAjoutEleve.nom) }}
-        {{ form_row(formAjoutEleve.prenom) }}
-        {{ form_row(formAjoutEleve.email) }}
-        {{ form_row(formAjoutEleve.password) }}
+			{{ form_start(formAjoutEleve) }}
 
-        <button type="submit" class="btn btn-primary mb-3 mt-3">
-            Ajouter l'eleve </button>
+			{{ form_row(formAjoutEleve.nom) }}
+			{{ form_row(formAjoutEleve.prenom) }}
+			{{ form_row(formAjoutEleve.email) }}
+			{{ form_row(formAjoutEleve.password) }}
 
-
-        {{ form_end(formAjoutEleve) }}
-    </div>
-
-    <div class="creationAjoutEleve bg-primary rounded col-md-5 mx-auto mt-3">
-
-        <h1 class="pt-3 mb-3 text-center">Ajouter un Enseignant </h1>
-
-        {{ form_start(formAjoutEnseignant) }}
-
-        {{ form_row(formAjoutEnseignant.nom) }}
-        {{ form_row(formAjoutEnseignant.prenom) }}
-        {{ form_row(formAjoutEnseignant.matiere) }}
-        {{ form_row(formAjoutEnseignant.email) }}
-        {{ form_row(formAjoutEnseignant.password) }}
-
-        <button type="submit" class="btn btn-success mb-3 mt-3">
-            Ajouter l'enseignant </button>
+			<button type="submit" class="btn btn-primary mb-3 mt-3">
+				Ajouter l'eleve
+			</button>
 
 
-        {{ form_end(formAjoutEnseignant) }}
-    </div>
-</div>
+			{{ form_end(formAjoutEleve) }}
+		</div>
+
+		<div class="creationAjoutEleve bg-primary rounded col-md-5 mx-auto mt-3">
+
+			<h1 class="pt-3 mb-3 text-center">Ajouter un Enseignant
+			</h1>
+
+			{{ form_start(formAjoutEnseignant) }}
+
+			{{ form_row(formAjoutEnseignant.nom) }}
+			{{ form_row(formAjoutEnseignant.prenom) }}
+			{{ form_row(formAjoutEnseignant.matiere) }}
+			{{ form_row(formAjoutEnseignant.email) }}
+			{{ form_row(formAjoutEnseignant.password) }}
+
+			<button type="submit" class="btn btn-success mb-3 mt-3">
+				Ajouter l'enseignant
+			</button>
+
+
+			{{ form_end(formAjoutEnseignant) }}
+		</div>
+	</div>
 
 
 {% endblock %}
