@@ -27,19 +27,18 @@
 
 						<div class="d-flex justify-content-between" id="navbarNav">
 							<div class="lien text-center">
-								<a class="text-decoration-none text-reset" href="#">Mes devoirs</a>
+								<a class="text-decoration-none text-reset" href="{{ path('eleve')}}">Accueil</a>
 							</div>
 							<div class="lien text-center">
-								<a class="text-decoration-none text-reset" href="#">Mes cours</a>
-							</div>
-							<div class="lien text-center">
-								<a class="text-decoration-none text-reset" href="#">Contacter professeur</a>
+								<a class="text-decoration-none text-reset" href="{{ path('ressource_eleve')}}">Tous mes cours et devoirs</a>
+
+
 							</div>
 						</div>
 
 						{% if user is defined  %}
 
-							<div id="bienvenue" class="text-center text-success">
+							<div id="bienvenue" class="ml-3 pl-3 text-center text-success">
 
 								<p class="">Bonjour
 									{{ user.prenom }}
@@ -52,20 +51,20 @@
 					</div>
 
 					{# <ul class="navbar-nav ">
-																																																																																																																																																																																																																			<li class=" mr-4">
-																																																																																																																																																																																																																				<div class="liens"><a class="text-decoration-none text-reset" href="#">Mes devoirs</a></di>
-																																																																																																																																																																																																																			</li>
-																																																																																																																																																																																																																			<li class=" mr-4">
-																																																																																																																																																																																																																				<div class="liens"><a class="text-decoration-none text-reset" href="#">Mes cours</a></di>
-																																																																																																																																																																																																																			</li>
-																																																																																																																																																																																																																			<li class=" mr-4">
-																																																																																																																																																																																																																				<div class="liens"><a class="text-decoration-none text-reset" href="#">Contacter professeur</a></di>
-																																																																																																																																																																																																																			</li>
-																																																																																																																																																																																																																				<li class=" mr-4">
-																																																																																																																																																																																																																					<a class="text-decoration-none text-reset disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-																																																																																																																																																																																																																				</li>
-																																																																																																																																																																																																																		
-																																																																																																																																																																																																																		</ul> #}
+																																																																																																																																																																																																																																																																<li class=" mr-4">
+																																																																																																																																																																																																																																																																	<div class="liens"><a class="text-decoration-none text-reset" href="#">Mes devoirs</a></di>
+																																																																																																																																																																																																																																																																</li>
+																																																																																																																																																																																																																																																																<li class=" mr-4">
+																																																																																																																																																																																																																																																																	<div class="liens"><a class="text-decoration-none text-reset" href="#">Mes cours</a></di>
+																																																																																																																																																																																																																																																																</li>
+																																																																																																																																																																																																																																																																<li class=" mr-4">
+																																																																																																																																																																																																																																																																	<div class="liens"><a class="text-decoration-none text-reset" href="#">Contacter professeur</a></di>
+																																																																																																																																																																																																																																																																</li>
+																																																																																																																																																																																																																																																																	<li class=" mr-4">
+																																																																																																																																																																																																																																																																		<a class="text-decoration-none text-reset disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+																																																																																																																																																																																																																																																																	</li>
+																																																																																																																																																																																																																																																															
+																																																																																																																																																																																																																																																															</ul> #}
 
 
 				</nav>

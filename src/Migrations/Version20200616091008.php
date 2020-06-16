@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20200615165550 extends AbstractMigration
+final class Version20200616091008 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -25,7 +25,7 @@ final class Version20200615165550 extends AbstractMigration
         $this->addSql('ALTER TABLE classe CHANGE niveau niveau ENUM(\'6\', \'5\', \'4\',\'3\'), CHANGE section section ENUM(\'A\', \'B\', \'C\')');
         $this->addSql('ALTER TABLE eleve CHANGE roles roles JSON NOT NULL');
         $this->addSql('ALTER TABLE enseignant CHANGE roles roles JSON NOT NULL');
-        $this->addSql('ALTER TABLE ressource CHANGE type type ENUM(\'cours\', \'devoir_a_rendre\', \'devoir_rendu\'), CHANGE link link VARCHAR(255) DEFAULT NULL');
+        $this->addSql('ALTER TABLE ressource CHANGE type type ENUM(\'cours\', \'devoir_a_rendre\', \'devoir_rendu\'), CHANGE link link VARCHAR(255) DEFAULT NULL, CHANGE date_limite datelimite DATE NOT NULL');
     }
 
     public function down(Schema $schema) : void
@@ -36,6 +36,6 @@ final class Version20200615165550 extends AbstractMigration
         $this->addSql('ALTER TABLE classe CHANGE niveau niveau VARCHAR(255) CHARACTER SET utf8mb4 DEFAULT \'NULL\' COLLATE `utf8mb4_unicode_ci`, CHANGE section section VARCHAR(255) CHARACTER SET utf8mb4 DEFAULT \'NULL\' COLLATE `utf8mb4_unicode_ci`');
         $this->addSql('ALTER TABLE eleve CHANGE roles roles LONGTEXT CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_bin`');
         $this->addSql('ALTER TABLE enseignant CHANGE roles roles LONGTEXT CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_bin`');
-        $this->addSql('ALTER TABLE ressource CHANGE type type VARCHAR(255) CHARACTER SET utf8mb4 DEFAULT \'NULL\' COLLATE `utf8mb4_unicode_ci`, CHANGE link link VARCHAR(255) CHARACTER SET utf8mb4 DEFAULT \'NULL\' COLLATE `utf8mb4_unicode_ci`');
+        $this->addSql('ALTER TABLE ressource CHANGE type type VARCHAR(255) CHARACTER SET utf8mb4 DEFAULT \'NULL\' COLLATE `utf8mb4_unicode_ci`, CHANGE link link VARCHAR(255) CHARACTER SET utf8mb4 DEFAULT \'NULL\' COLLATE `utf8mb4_unicode_ci`, CHANGE datelimite date_limite DATE NOT NULL');
     }
 }

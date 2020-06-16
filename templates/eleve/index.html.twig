@@ -10,7 +10,11 @@
 
 
 		<div id="ressource" class="col-md-6 table-responsive bg-success rounded">
-			<h2 class="text-center font-weight-bold mt-4 text-dark">Liste des cours et devoirs</h2>
+			<h2 class="text-center font-weight-bold mt-4 text-dark">
+				<a class=" text-reset" href=" {{ path('ressource_eleve')}}">Liste des cours et devoirs</a>
+			</h2>
+
+
 			<table class="table table-borderless mt-4">
 
 				<tr class="text-center text-dark">
@@ -30,16 +34,31 @@
 				<div id="appRessouces">
 					{% for row in ressource %}
 						<tr class="mb-5 border-bottom border-dark">
-							<td class="pl-3">{{ row.type }}</td>
-							<td class="pl-3">{{ row.Titre }}</td>
+							<td class="pl-3">
+								<a class="voir text-decoration-none text-reset" href="{{path('ressource_show',{'id':row.id})}}">{{ row.type }}</a>
+							</td>
+
+							<td class="pl-3 text-justify">{{ row.Titre|slice(3,20) }}
+								...</td>
+
 							<td class="text-center pr-4">
 								<a href="{{ row.link }}">
 									<i class="fas fa-file-upload text-dark text-center"></i>
 								</a>
 							</td>
-							<td class="pl-3">{{ row.createAt|date("d/m/Y") }}</td>
+							<td class="pl-3">{{ row.datelimite|date("d/m/Y") }}</td>
+
 						</tr>
 					{% endfor %}
+					<div class="">
+						<td>
+							<a class="voir text-decoration-none text-reset" href=" {{ path('ressource_eleve')}}">Voir tout</a>
+
+
+						</td>
+					</div>
+
+
 				</div>
 			</table>
 		</div>
@@ -73,6 +92,8 @@
 							</td>
 						</tr>
 					{% endfor %}
+
+
 				</div>
 			</table>
 		</div>

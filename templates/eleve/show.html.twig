@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EleveControlerController!
+{% endblock %}
+
+{% block body %}
+	{# href="{{ path('blog_show', {'id' : newArticles.id})}}" #}
+
+	<div id="ressource" class="container_corps col-md-10 mt-3 mx-auto d-flex justify-content-around">
+
+		<div id="ressource" class="col-md-10 table-responsive bg-success rounded">
+			<div class="spacer mb-5">
+
+
+				<h2 class="text-center font-weight-bold mt-4 mb-5 text-dark">
+					<a class="text-reset" href=" {{ path('ressource_eleve')}}">détail du
+						{{ ressource.Type}}</a>
+				</h2>
+
+				<h4 class="text-center mb-5">
+					<u>{{ ressource.titre}}</u>
+				</h4>
+			</div>
+			<div class="spacer mb-5">
+
+				<p>
+					<h5 class="mb-5 text-indent text-justify">{{ ressource.Description }}</h5>
+
+
+				</p>
+			</div>
+			<div class="mb-5 text-center">
+
+
+				<a class="" href="{{ ressource.link }}">
+
+					<i class="fas fa-file-upload fa-5x text-warning"></i>
+
+				</a>
+				<h5 class="mt-5 text-center">
+
+					<strong>Agenda</strong>
+					: Pour le
+					{{ ressource.datelimite|date("d/m/Y") }}</h5>
+
+			</div>
+
+
+		</div>
+
+	</div>
+
+{% endblock %}

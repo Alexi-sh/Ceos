@@ -20,9 +20,9 @@ class ProfesseurController extends AbstractController
     public function index(EntityManagerInterface $manager)
     {
 
-        $ressource = $this->getDoctrine()->getRepository(Ressource::class)->findBy(array(), array('date_limite' => 'ASC'), 10);
+        $ressource = $this->getDoctrine()->getRepository(Ressource::class)->findBy(array(), array('datelimite' => 'desc'), 10, null);
         $user = $this->get('security.token_storage')->getToken()->getUser();
-
+        dump($ressource);
         return $this->render('professeur/index.html.twig', [
             'ressource' => $ressource,
             'user' => $user
@@ -46,8 +46,8 @@ class ProfesseurController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $file = $ressource->getLink();
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
-            $file->move($this->getParameter('upload_directory'),$fileName);
+            $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+            $file->move($this->getParameter('upload_directory'), $fileName);
             $ressource->setLink($fileName);
 
             $manager->persist($ressource);
