@@ -5,6 +5,8 @@ security:
             algorithm: bcrypt
         App\Entity\Eleve:
             algorithm: bcrypt
+        App\Entity\Admin:
+            algorithm: bcrypt
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
@@ -12,7 +14,7 @@ security:
 
         chain_provider:
             chain:
-                providers: [app_student_provider, app_teacher_provider]
+                providers: [app_student_provider, app_teacher_provider, app_admin_provider]
         app_student_provider:
             entity:
                 class: App\Entity\Eleve
@@ -20,6 +22,10 @@ security:
         app_teacher_provider:
             entity:
                 class: App\Entity\Enseignant
+                property: email
+        app_admin_provider:
+            entity:
+                class: App\Entity\Admin
                 property: email
 
     firewalls:
@@ -42,16 +48,7 @@ security:
             logout:
                 path: app_logout
 
-
-            # activate different ways to authenticate
-            # https://symfony.com/doc/current/security.html#firewalls-authentication
-
-            # https://symfony.com/doc/current/security/impersonating_user.html
-            # switch_user: true
-
-    # Easy way to control access for large sections of your site
-    # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
+          - { path: ^/admin, roles: ROLE_ADMIN }
           - { path: ^/professeur, roles: ROLE_USER }
           - { path: ^/eleve, roles: ROLE_USER_ELEVE }

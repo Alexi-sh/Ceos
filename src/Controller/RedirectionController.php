@@ -20,5 +20,7 @@ class RedirectionController extends AbstractController
             return $this->redirect($this->generateUrl('professeur'));
         else if($this->container->get('security.authorization_checker')->isGranted('ROLE_USER_ELEVE'))
             return $this->redirect($this->generateUrl('eleve'));
+        else if($this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN'))
+            return $this->redirect($this->generateUrl('admin'));
     }
 }
