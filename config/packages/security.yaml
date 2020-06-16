@@ -38,6 +38,9 @@ security:
             form_login: 
                 login_path: login
                 check_path: redirection
+            
+            logout:
+                path: app_logout
 
 
             # activate different ways to authenticate
