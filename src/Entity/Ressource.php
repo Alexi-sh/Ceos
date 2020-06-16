@@ -53,11 +53,6 @@ class Ressource
      */
     private $prof;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $matiere;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -143,18 +138,6 @@ class Ressource
     public function setProf(int $prof): self
     {
         $this->prof = $prof;
-
-        return $this;
-    }
-
-    public function getMatiere(): ?string
-    {
-        return $this->matiere;
-    }
-
-    public function setMatiere(string $matiere): self
-    {
-        $this->matiere = $matiere;
 
         return $this;
     }
