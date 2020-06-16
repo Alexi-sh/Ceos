@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
+use App\DataFixtures\RessourceFixtures;
 use App\Entity\Classe;
+use App\Entity\Enseignant;
 use App\Entity\Ressource;
 use App\Form\RessourceType;
+use App\Repository\EnseignantRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
@@ -40,7 +43,6 @@ class ProfesseurController extends AbstractController
         $ressource = new Ressource();
         $user = $this->get('security.token_storage')->getToken()->getUser();
         $userId = $user->getId();
-
 
 
         $form = $this->createForm(RessourceType::class, $ressource);
