@@ -22,7 +22,8 @@ class RessourceFixtures extends Fixture
                 ->setDescription($faker->paragraph($nbSentences = 5, $variableNbSentences = true))
                 ->setDateLimite($faker->dateTimeBetween($startDate = 'now', $endDate = '+1weeks', $timezone = 'Europe/Paris'))
                 ->setLink($faker->sentence($nbWords = 6, $variableNbWords = true))
-                ->setCreateAt($faker->dateTimeInInterval($startDate = '-1weeks', $interval = '+1weeks', $timezone = 'Europe/Paris'));
+                ->setCreateAt($faker->dateTimeInInterval($startDate = '-1weeks', $interval = '+1weeks', $timezone = 'Europe/Paris'))
+                ->setProf($faker->randomElement($array = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11')));
 
 
 

@@ -9,7 +9,7 @@ use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-class EnseignantFixtures extends Fixture 
+class EnseignantFixtures extends Fixture
 {
     private $encoder;
 
@@ -22,24 +22,24 @@ class EnseignantFixtures extends Fixture
     {
         $faker = \Faker\Factory::create();
 
-        for ($i=1; $i <=10; $i++) { 
-            
+        for ($i = 1; $i <= 10; $i++) {
+
             $enseignant = new Enseignant;
             $nom = $faker->lastName;
             $prenom = $faker->firstName;
             $fournisseurAcces = $faker->freeEmailDomain;
 
-            $matiere = $faker->randomElement($array = array ('Français','Anglais','Mathématique','Histoire','Technologie')); // 
+            $matiere = $faker->randomElement($array = array('Français', 'Anglais', 'Mathématique', 'Histoire', 'Technologie')); // 
 
-            $enseignant ->setNom($nom)
-                        ->setPrenom($prenom)
-                        ->setEmail("$prenom.$nom@$fournisseurAcces")
-                        ->setPassword("mdp$i")
-                        ->setMatiere("$matiere");
-            
+            $enseignant->setNom($nom)
+                ->setPrenom($prenom)
+                ->setEmail("$prenom.$nom@$fournisseurAcces")
+                ->setPassword("mdp$i")
+                ->setMatiere("$matiere");
+
             $hash = $this->encoder->encodePassword($enseignant, $enseignant->getPassword());
-            
-            $enseignant ->setPassword($hash);
+
+            $enseignant->setPassword($hash);
 
 
             $manager->persist($enseignant);
@@ -47,20 +47,20 @@ class EnseignantFixtures extends Fixture
 
         $enseignant = new Enseignant;
 
-        $enseignant ->setNom("admin")
-                    ->setPrenom("admin")
-                    ->setEmail("admin@gmail.com")
-                    ->setPassword("admin")
-                    ->setMatiere("Histoire");
+        $enseignant->setNom("admin")
+            ->setPrenom("admin")
+            ->setEmail("admin@gmail.com")
+            ->setPassword("admin")
+            ->setMatiere("Histoire");
 
-                $hash = $this->encoder->encodePassword($enseignant, $enseignant->getPassword());
-    
-                $enseignant ->setPassword($hash);
-    
-    
-                $manager->persist($enseignant);
+        $hash = $this->encoder->encodePassword($enseignant, $enseignant->getPassword());
 
-        
+        $enseignant->setPassword($hash);
+
+
+        $manager->persist($enseignant);
+
+
 
 
         $manager->flush();
