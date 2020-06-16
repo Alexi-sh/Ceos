@@ -1,20 +1,44 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Hello AdminController!{% endblock %}
-
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<div class="d-flex">
+    <div class="creationAjoutEleve bg-success rounded col-md-5 mx-auto mt-3">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/SYMFONY/Ceos/src/Controller/AdminController.php'|file_link(0) }}">src/Controller/AdminController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/SYMFONY/Ceos/templates/admin/index.html.twig'|file_link(0) }}">templates/admin/index.html.twig</a></code></li>
-    </ul>
+        <h1 class="pt-3 mb-3 text-center">Ajouter un éleve </h1>
+
+        {{ form_start(formAjoutEleve) }}
+
+        {{ form_row(formAjoutEleve.nom) }}
+        {{ form_row(formAjoutEleve.prenom) }}
+        {{ form_row(formAjoutEleve.email) }}
+        {{ form_row(formAjoutEleve.password) }}
+
+        <button type="submit" class="btn btn-primary mb-3 mt-3">
+            Ajouter l'eleve </button>
+
+
+        {{ form_end(formAjoutEleve) }}
+    </div>
+
+    <div class="creationAjoutEleve bg-primary rounded col-md-5 mx-auto mt-3">
+
+        <h1 class="pt-3 mb-3 text-center">Ajouter un Enseignant </h1>
+
+        {{ form_start(formAjoutEnseignant) }}
+
+        {{ form_row(formAjoutEnseignant.nom) }}
+        {{ form_row(formAjoutEnseignant.prenom) }}
+        {{ form_row(formAjoutEnseignant.matiere) }}
+        {{ form_row(formAjoutEnseignant.email) }}
+        {{ form_row(formAjoutEnseignant.password) }}
+
+        <button type="submit" class="btn btn-success mb-3 mt-3">
+            Ajouter l'enseignant </button>
+
+
+        {{ form_end(formAjoutEnseignant) }}
+    </div>
 </div>
+
+
 {% endblock %}
