@@ -19,7 +19,7 @@ class Ressource
     private $id;
 
     /**
-     * @Column(type="string", columnDefinition="ENUM('cours', 'devoir_a_rendre', 'devoir_rendu')"))
+     * @Column(type="string", columnDefinition="ENUM('Cours', 'Devoir')"))
      */
     private $type;
 
@@ -46,7 +46,7 @@ class Ressource
     /**
      * @ORM\Column(type="date")
      */
-    private $date_limite;
+    private $datelimite;
 
     public function getId(): ?int
     {
@@ -115,12 +115,12 @@ class Ressource
 
     public function getDateLimite(): ?\DateTimeInterface
     {
-        return $this->date_limite;
+        return $this->datelimite;
     }
 
-    public function setDateLimite(\DateTimeInterface $date_limite): self
+    public function setDateLimite(\DateTimeInterface $datelimite): self
     {
-        $this->date_limite = $date_limite;
+        $this->datelimite = $datelimite;
 
         return $this;
     }

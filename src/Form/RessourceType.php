@@ -48,7 +48,7 @@ class RessourceType extends AbstractType
                     ])
                 ],
             ])
-            ->add('date_limite', DateType::class, array(
+            ->add('datelimite', DateType::class, array(
                 'label' => 'A faire pour le',
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',

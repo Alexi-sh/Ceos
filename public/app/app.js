@@ -13,9 +13,16 @@ var app = {};
     var $window = $(window),
         $document = $(document);
 
-    $fadeInOuverturePage = $('.container').animate({
-        "opacity": "1"
-    }, 1800);
+    var $premierAffichage = true;
+
+    app.fadeInOuverturePage = function() {
+        $('.container').animate({
+            "opacity": "1"
+        }, 1800);
+    }
+
+
+
 
     // app.fadeInOuverturePage = function() {
     //     $('.container').animate({
@@ -28,7 +35,7 @@ var app = {};
     }, 1800);
 
     $document.ready(function() {
-        $fadeInOuverturePage;
+        app.fadeInOuverturePage();
 
 
 

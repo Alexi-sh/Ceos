@@ -17,12 +17,13 @@ class RessourceFixtures extends Fixture
 
             $ressource = new Ressource;
 
-            $ressource->setType($faker->randomElement($array = array('cours', 'devoir_a_rendre', 'devoir_rendu')))
-                ->setTitre($faker->word())
+            $ressource->setType($faker->randomElement($array = array('Cours', 'Devoir')))
+                ->setTitre($faker->sentence($nbWords = 6, $variableNbWords = true))
                 ->setDescription($faker->paragraph($nbSentences = 5, $variableNbSentences = true))
-                ->setDatelimite($faker->dateTimeBetween($startDate = 'now', $endDate = '+2weeks', $timezone = 'Europe/Paris'))
+                ->setDateLimite($faker->dateTimeBetween($startDate = 'now', $endDate = '+1weeks', $timezone = 'Europe/Paris'))
                 ->setLink($faker->sentence($nbWords = 6, $variableNbWords = true))
-                ->setCreateAt($faker->dateTimeAD($max = 'now', $timezone = 'Europe/Paris'));
+                ->setCreateAt($faker->dateTimeInInterval($startDate = '-1weeks', $interval = '+1weeks', $timezone = 'Europe/Paris'));
+
 
 
             $manager->persist($ressource);

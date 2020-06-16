@@ -22,9 +22,9 @@ class ProfesseurController extends AbstractController
     public function index(EntityManagerInterface $manager)
     {
 
-        $ressource = $this->getDoctrine()->getRepository(Ressource::class)->findBy(array(), array('date_limite' => 'ASC'), 10);
+        $ressource = $this->getDoctrine()->getRepository(Ressource::class)->findBy(array(), array('datelimite' => 'desc'), 10, null);
         $user = $this->get('security.token_storage')->getToken()->getUser();
-
+        dump($ressource);
         return $this->render('professeur/index.html.twig', [
             'ressource' => $ressource,
             'user' => $user
