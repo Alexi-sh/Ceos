@@ -19,8 +19,8 @@ class RessourceType extends AbstractType
         $builder
             ->add('type', ChoiceType::class, [
                 'choices' => [
-                    'Devoir' => 'devoir_a_rendre',
-                    'Cours' => 'cours'
+                    'Devoir' => 'Devoir',
+                    'Cours' => 'Cours'
                 ],
             ])
             ->add('Titre')
