@@ -2,39 +2,37 @@
 {% block body %}
 
 
-<div class="creationRessource bg-primary rounded col-md-6 mx-auto mt-3">
+	<div class="creationRessource bg-primary rounded col-md-6 mx-auto mt-3">
 
-	<h1 class="pt-3 mb-3">Création d'une ressource pédagogique</h1>
+		<h1 class="pt-3 mb-3">Création d'une ressource pédagogique</h1>
 
-	{{ form_start(formRessource) }}
-	<div class="d-flex">
-		{{ form_row(formRessource.type) }}
-		<div class="form-control-file">
-			
-			{{ form_row(formRessource.link, {'label' : 'Envoyer fichier'}) }}
+		{{ form_start(formRessource) }}
+		<div class="d-flex">
+			{{ form_row(formRessource.type) }}
+
 
 		</div>
 		
 
-	</div>
-	{{ form_row(formRessource.Titre) }}
+		</div>
+		{{ form_row(formRessource.Titre) }}
 
 
-	{{ form_row(formRessource.Description) }}
+		{{ form_row(formRessource.Description) }}
 
 		<label>A faire pour le</label>
 		{{ form_widget(formRessource.datelimite, {'label' : 'Envoyer fichier'}) }}
 
+		{{ form_row(formRessource.link, {'label' : 'Envoyer fichier'}) }}
 
 
-	{# {{timestamp|date('d. M Y')}} #}
-	<button type="submit" class="btn btn-success mb-3 mt-3">
-		Ajouter la ressource</button>
+		{# {{timestamp|date('d. M Y')}} #}
+		<button type="submit" class="btn btn-success mb-3 mt-3">
+			Ajouter la ressource</button>
 
 
-	{{ form_end(formRessource) }}
-</div>
-
+		{{ form_end(formRessource) }}
+	</div>
 
 
 {% endblock %}
