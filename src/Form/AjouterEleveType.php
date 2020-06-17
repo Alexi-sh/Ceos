@@ -6,6 +6,7 @@ use App\Entity\Eleve;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class AjouterEleveType extends AbstractType
 {
@@ -15,7 +16,7 @@ class AjouterEleveType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('email')
-            ->add('password')
+            ->add('password', PasswordType::class)
         ;
     }
 
