@@ -7,29 +7,17 @@
 		<h1 class="pt-3 mb-3">Création d'une ressource pédagogique</h1>
 
 		{{ form_start(formRessource) }}
-		<div class="d-flex">
-			{{ form_row(formRessource.type) }}
-
-
-		</div>
 		
+			{{ form_row(formRessource.type) }}
+			{{ form_row(formRessource.Titre) }}
+			{{ form_row(formRessource.Description) }}
+			<label>A faire pour le</label>
+			{{ form_widget(formRessource.datelimite, {'label' : 'Envoyer fichier'}) }}
 
-		</div>
-		{{ form_row(formRessource.Titre) }}
-
-
-		{{ form_row(formRessource.Description) }}
-
-		<label>A faire pour le</label>
-		{{ form_widget(formRessource.datelimite, {'label' : 'Envoyer fichier'}) }}
-
-		{{ form_row(formRessource.link, {'label' : 'Envoyer fichier'}) }}
-
-
-		{# {{timestamp|date('d. M Y')}} #}
-		<button type="submit" class="btn btn-success mb-3 mt-3">
+			{{ form_row(formRessource.link, {'label' : 'Envoyer fichier'}) }}
+			{# {{timestamp|date('d. M Y')}} #}
+			<button type="submit" class="btn btn-success mb-3 mt-3">
 			Ajouter la ressource</button>
-
 
 		{{ form_end(formRessource) }}
 	</div>
