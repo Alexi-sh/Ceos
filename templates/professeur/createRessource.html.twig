@@ -9,8 +9,12 @@
 	{{ form_start(formRessource) }}
 	<div class="d-flex">
 		{{ form_row(formRessource.type) }}
-		{{ form_row(formRessource.link, {'label' : 'Envoyer fichier'}) }}
+		<div class="form-control-file">
+			
+			{{ form_row(formRessource.link, {'label' : 'Envoyer fichier'}) }}
 
+		</div>
+		
 
 	</div>
 	{{ form_row(formRessource.Titre) }}
